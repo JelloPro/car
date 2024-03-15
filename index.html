@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaHaHa!!!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="car">
+        <nav>
+            <img src="images/McLaren-Logo-1998.png" class="logo"/>
+            <a href="test_drive.html" class="btn">Test Drive</a>
+        </nav>
+        <div class="content">
+            <h2>McLaren</h2>
+            <h1>720S</h1>
+            <h3>Choose your colour!</h3>
+            <div class="colour-select">
+                <div id="red"></div>
+                <div id="white"></div>
+                <div id="black"></div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        let redBtn =  document.getElementById('red');
+        let whiteBtn =  document.getElementById('white');
+        let blackBtn =  document.getElementById('black');
+        let car =  document.getElementById('car');
+
+        redBtn.onclick = function(){
+            car.style.backgroundImage = "url(images/red.jpg)";
+        }
+
+        whiteBtn.onclick = function() {
+            car.style.backgroundImage = "url(images/grey.jpg)";
+        }
+
+        blackBtn.onclick = function(){
+            car.style.backgroundImage = "url(images/black.webp)";
+        }
+
+    </script>
+    
+</body>
+</html>

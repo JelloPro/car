@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Drive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(images/heart.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: #ffe6f2;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+        }
+        h1 {
+            color: #333;
+            font-family: "Comic Sans MS", cursive;
+        }
+        p {
+            color: #666;
+            margin-bottom: 10px;
+            font-family: "Comic Sans MS", cursive;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"] {
+            font-family: cursive;
+            margin-bottom: 10px;
+        }
+        /* Confetti CSS */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f44336; /* Default confetti color */
+            opacity: 0.5;
+            will-change: transform;
+            animation: fall 5s ease-out infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Take a Test Drive!</h1>
+        <p>Experience the thrill of driving the McLaren 720S.</p>
+        <p>Contact us now to schedule a test drive.</p>
+        <form id="testDriveForm" action="http://localhost/insert.php" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="date">Date:</label><br>
+            <input type="date" id="date" name="date" required><br><br>
+            <button id="submitButton" type="submit">Schedule Test Drive</button>
+        </form>
+    </div>
+
+    <script>
+        function createConfetti() {
+            var colors = ['#f44336', '#2196f3', '#4caf50', '#ffeb3b', '#ff9800'];
+            var confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.appendChild(confetti);
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+
+        document.getElementById('submitButton').addEventListener('click', function() {
+            createConfetti();
+        });
+    </script>
+</body>
+</html>
